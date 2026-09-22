@@ -1,0 +1,30 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const notes = await getCollection('notes');
+  return notes.map((note) => ({
+    params: { slug: note.id },
+    props: { note },
+  }));
+}
+
+const { note } = Astro.props;
+const { Content } = await render(note);
+const statusLabel = note.data.status === 'draft' ? 'Draft' : 'Planned';
+---
+
+<BaseLayout title={note.data.title} description={note.data.description}
+  ><article class="shell note-detail">
+    <p class="eyebrow">{note.data.category} · Note</p>
+    <h1>{note.data.title}</h1>
+    <p class="status-banner">
+      {statusLabel} &mdash; this note is not a finished piece. Content and conclusions may change.
+    </p>
+    <div class="note-body">
+      <Content />
+    </div>
+    <p><a class="text-link" href="/notes/">← Back to all notes</a></p>
+  </article></BaseLayout
+>

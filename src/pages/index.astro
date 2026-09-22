@@ -1,105 +1,63 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PlatformMap from '../components/PlatformMap.astro';
-import IncidentSimulator from '../components/IncidentSimulator.astro';
 import CareerTimeline from '../components/CareerTimeline.astro';
-import SignalPlate from '../components/SignalPlate.astro';
-import CurrentThreads from '../components/CurrentThreads.astro';
-import SectionHeading from '../components/SectionHeading.astro';
-import { technologies } from '../data/site';
+import { site } from '../data/site';
+
+const proofPoints = [
+  ['7+ yrs', 'Systems, cloud & platform engineering'],
+  ['182+', 'Production-down AWS cases resolved'],
+  ['Production EKS', 'Operated at Defense Unicorns'],
+  ['M.S. MIS', 'Texas A&M, in progress'],
+];
 ---
 
 <BaseLayout title="Platform Engineering · Cloud Infrastructure · Data">
   <section class="hero shell">
-    <div class="hero-layout">
-      <div class="hero-copy">
-        <p class="eyebrow">Platform engineering · cloud infrastructure · data</p><h1>
-          Joshua<br /><em>Brewer</em>
-        </h1><p class="hero-statement">I build systems that engineers can depend on.</p><p
-          class="lede"
+    <div class="hero-copy">
+      <p class="eyebrow">Platform engineering · cloud infrastructure · data</p><h1>
+        Joshua<br /><em>Brewer</em>
+      </h1><p class="hero-statement">I build systems that engineers can depend on.</p><p
+        class="lede"
+      >
+        Platform Engineer focused on cloud infrastructure, automation, observability, security, and
+        data-driven systems. Currently expanding that foundation through an M.S. in Management
+        Information Systems at Texas A&amp;M University.
+      </p><div class="actions">
+        <a class="button" href="/projects/">Explore my work</a><a
+          class="button secondary"
+          href="/resume/">View resume</a
+        ><a class="text-link" href={site.github} target="_blank" rel="noreferrer">GitHub ↗</a>
+      </div><div class="progression" aria-label="Engineering career progression">
+        <span>Systems</span><b>→</b><span>Cloud</span><b>→</b><span>Platform</span><b>→</b><span
+          >Data</span
         >
-          Platform Engineer focused on cloud infrastructure, automation, observability, security,
-          and data-driven systems. Currently expanding that foundation through an M.S. in Management
-          Information Systems at Texas A&amp;M University.
-        </p><div class="actions">
-          <a class="button" href="/projects/">Explore my work</a><a
-            class="button secondary"
-            href="/resume/">View resume</a
-          ><a class="text-link" href="https://github.com/" target="_blank" rel="noreferrer"
-            >GitHub ↗</a
-          >
-        </div><div class="progression" aria-label="Engineering career progression">
-          <span>Systems</span><b>→</b><span>Cloud</span><b>→</b><span>Platform</span><b>→</b><span
-            >Data</span
-          >
-        </div>
-      </div><SignalPlate />
+      </div>
     </div>
   </section>
+  <section class="shell proof-strip" aria-label="Career highlights">
+    {
+      proofPoints.map(([figure, label]) => (
+        <div class="proof-item">
+          <span class="proof-figure">{figure}</span>
+          <span class="proof-label">{label}</span>
+        </div>
+      ))
+    }
+  </section>
   <div class="shell stack">
-    <CurrentThreads />
-    <PlatformMap />
-    <section>
-      <SectionHeading
-        eyebrow="Three connected disciplines"
-        title="The work lives at the intersection."
-        text="Reliable platforms are more than infrastructure: they combine delivery, operational insight, and durable systems thinking."
-      /><div class="pillar-grid">
-        {
-          Object.entries(technologies).map(([name, tools]) => (
-            <article class="pillar">
-              <>
-                <p class="eyebrow">{name}</p>
-                <h3>
-                  {name === 'platform'
-                    ? 'Platforms people trust.'
-                    : name === 'data'
-                      ? 'Data that informs decisions.'
-                      : 'Systems that hold up.'}
-                </h3>
-                <ul>
-                  {tools.map((tool) => (
-                    <li>{tool}</li>
-                  ))}
-                </ul>
-              </>
-            </article>
-          ))
-        }
-      </div>
-    </section>
     <CareerTimeline />
-    <IncidentSimulator />
-    <section class="automation">
-      <SectionHeading
-        eyebrow="Engineering philosophy"
-        title="From repetition to automation"
-        text="The goal is not merely to close a ticket—it is to make the next occurrence easier to understand, resolve, and prevent."
-      /><div class="process-grid">
-        <article>
-          <h3>Manual process</h3><ol>
-            <li>Problem</li><li>Investigation</li><li>Manual fix</li><li>Repeat</li><li>
-              Operational debt
-            </li>
-          </ol>
-        </article><article>
-          <h3>Engineering process</h3><ol>
-            <li>Problem</li><li>Understand</li><li>Automate</li><li>Observe</li><li>Document</li><li
-            >
-              Improve
-            </li>
-          </ol>
-        </article>
+    <PlatformMap />
+    <section class="close-cta">
+      <h2>
+        Interested in what platform reliability and data-driven engineering could look like on your
+        team?
+      </h2><div class="actions">
+        <a class="button" href="/resume/">View resume</a><a
+          class="button secondary"
+          href="/projects/">See projects</a
+        ><a class="text-link" href={site.github} target="_blank" rel="noreferrer">GitHub ↗</a>
       </div>
-    </section>
-    <section class="learning">
-      <p class="eyebrow">Now learning</p><h2>
-        Platform Engineering <b>+</b> Operational Data <b>+</b> Analytics <b>+</b> Information Systems
-        <b>=</b> Better Engineering Decisions
-      </h2><p>
-        At Texas A&amp;M’s Mays Business School, Joshua is connecting practical platform work with
-        data analytics, warehousing, Python, SQL, and organizational decision-making.
-      </p><a class="text-link" href="/about/">Read the longer story →</a>
     </section>
   </div>
 </BaseLayout>

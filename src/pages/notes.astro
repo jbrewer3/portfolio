@@ -1,33 +1,33 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-const drafts = [
-  ['Parquet vs CSV', 'Data · Draft'],
-  ['Designing Terraform Modules', 'Platform Engineering · Planned'],
-  ['Kubernetes Observability', 'Kubernetes · Planned'],
-  ['Applying Data Analytics to Infrastructure', 'Data · MS MIS · Planned'],
-  ['Building 12th Data', 'Data · Planned'],
-];
+
+const notes = (await getCollection('notes')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
 ---
 
 <BaseLayout title="Notes"
   ><section class="page-hero shell">
-    <p class="eyebrow">Notes</p><h1>Notes from the<br />engineering desk.</h1><p class="lede">
+    <h1>Notes from the<br />engineering desk.</h1><p class="lede">
       A lightweight, Markdown-ready publishing space for ideas that are still being tested, learned,
-      and made useful.
+      and made useful. Every entry here is a draft or planned outline&mdash;none represent finished
+      writing.
     </p>
   </section><section class="shell note-list">
     {
-      drafts.map(([title, meta]) => (
+      notes.map((note) => (
         <article>
-          <>
-            <div>
-              <>
-                <p class="eyebrow">{meta}</p>
-                <h2>{title}</h2>
-              </>
-            </div>
-            <span class="status">Draft / planned</span>
-          </>
+          <div>
+            <p class="eyebrow">
+              {note.data.category} · {note.data.status === 'draft' ? 'Draft' : 'Planned'}
+            </p>
+            <h2>
+              <a href={`/notes/${note.id}/`}>{note.data.title}</a>
+            </h2>
+            <p class="muted">{note.data.description}</p>
+          </div>
+          <span class="status">{note.data.status === 'draft' ? 'Draft' : 'Planned'}</span>
         </article>
       ))
     }

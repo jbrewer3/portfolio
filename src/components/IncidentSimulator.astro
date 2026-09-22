@@ -1,10 +1,7 @@
 <section class="incident panel" aria-labelledby="incident-title">
   <div>
-    <p class="eyebrow">Fictional incident simulator</p><h2 id="incident-title">
-      Can you fix the outage?
-    </h2><p>
-      Use the signals below to form a hypothesis. This scenario is deliberately sanitized and
-      fictional.
+    <h2 id="incident-title">Can you fix the outage?</h2><p>
+      A fictional, sanitized incident scenario. Use the signals below to form a hypothesis.
     </p>
   </div>
   <div class="incident-grid">
@@ -26,7 +23,10 @@
         ><button role="tab" data-tab="architecture">Architecture</button>
       </div><pre
         id="incident-output"
-        tabindex="0">CPU utilization   ███████████████████  94%\nMemory            ███████████████      76%\nPending pods      ████████████████████ 42</pre><button
+        tabindex="0">
+CPU utilization   ███████████████████  94%
+Memory            ███████████████      76%
+Pending pods      ████████████████████ 42</pre><button
         class="reveal"
         type="button">Reveal diagnosis</button
       ><div class="diagnosis" hidden>
@@ -46,17 +46,48 @@
       </div>
     </div>
   </div>
+  <noscript>
+    <p class="muted">
+      JavaScript is disabled, so the tabs above are static. The diagnosis this simulator leads to:
+    </p>
+  </noscript>
+  <details class="text-fallback">
+    <summary>View all investigation signals and the diagnosis as text</summary>
+    <dl>
+      <dt>Metrics</dt>
+      <dd>CPU utilization 94% · Memory 76% · Pending pods 42</dd>
+      <dt>Logs</dt>
+      <dd>service unavailable · pod pending · request waiting for available capacity</dd>
+      <dt>Events</dt>
+      <dd>FailedScheduling: Insufficient CPU · FailedScheduling: 0/6 nodes are available</dd>
+      <dt>Cluster</dt>
+      <dd>Nodes ready: 6 / 10 · Requested CPU: 94% · Pending workloads: 42</dd>
+      <dt>Architecture</dt>
+      <dd>
+        Traffic → Ingress → Services → Worker capacity, with autoscaling feeding worker capacity.
+      </dd>
+      <dt>Diagnosis: capacity exhaustion</dt>
+      <dd>
+        Workloads cannot be scheduled because available node capacity is exhausted and additional
+        capacity is not arriving quickly enough. Resolution approach: validate autoscaling signals
+        and constraints, restore safe capacity, then confirm scheduling recovery. Prevention:
+        capacity headroom, scaling tests, and alerting on pending workloads. What I would check
+        next: recent deploys, resource requests, autoscaler events, quota limits, node health, and
+        the traffic pattern that drove demand.
+      </dd>
+    </dl>
+  </details>
 </section>
 <script>
   // @ts-nocheck
   const evidence = {
     metrics:
-      'CPU utilization   ███████████████████  94%\\nMemory            ███████████████      76%\\nPending pods      ████████████████████ 42',
-    logs: 'service unavailable\\npod pending\\nrequest waiting for available capacity',
-    events: 'FailedScheduling: Insufficient CPU\\nFailedScheduling: 0/6 nodes are available',
-    cluster: 'Nodes ready: 6 / 10\\nRequested CPU: 94%\\nPending workloads: 42',
+      'CPU utilization   ███████████████████  94%\nMemory            ███████████████      76%\nPending pods      ████████████████████ 42',
+    logs: 'service unavailable\npod pending\nrequest waiting for available capacity',
+    events: 'FailedScheduling: Insufficient CPU\nFailedScheduling: 0/6 nodes are available',
+    cluster: 'Nodes ready: 6 / 10\nRequested CPU: 94%\nPending workloads: 42',
     architecture:
-      'Traffic → Ingress → Services → Worker capacity\\n                         ↘ Autoscaling',
+      'Traffic → Ingress → Services → Worker capacity\n                         ↘ Autoscaling',
   };
   document.querySelectorAll('[data-tab]').forEach((tab) =>
     tab.addEventListener('click', () => {

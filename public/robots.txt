@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://joshuabrewer.dev/sitemap-index.xml
+Sitemap: https://joshuabrewer.tech/sitemap-index.xml

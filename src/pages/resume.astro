@@ -4,51 +4,149 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout title="Resume"
   ><section class="page-hero shell">
-    <p class="eyebrow">Resume</p><h1>Platform Engineer<br />with a systems lens.</h1><p
-      class="lede"
-    >
+    <h1>Platform Engineer<br />with a systems lens.</h1><p class="lede">
       Public, high-level professional profile. The downloadable version contains only intentionally
       public, sanitized information.
+    </p><p class="muted">
+      Anahuac, TX · <a href="tel:+19032461634">903-246-1634</a> · <a
+        href="mailto:joshuabrewer.d@gmail.com">joshuabrewer.d@gmail.com</a
+      > · <a href="https://linkedin.com/in/joshuabrewer3" target="_blank" rel="noreferrer"
+        >LinkedIn</a
+      > · <a href="https://github.com/jbrewer3" target="_blank" rel="noreferrer">GitHub</a> · Active TS/SCI
+      clearance.
     </p><a class="button secondary" href="/resume/joshua-brewer-resume.pdf">Download resume PDF</a>
   </section><section class="shell resume">
     <article>
       <h2>Summary</h2><p>
-        Platform Engineer with 7+ years of experience across cloud infrastructure, Kubernetes,
-        automation, observability, security, and enterprise systems.
+        Platform Engineer with 7+ years of experience building and running production cloud
+        infrastructure on AWS. Strong background managing EKS cluster lifecycles, establishing
+        modular Terraform practices, and driving AWS cost efficiency across multi-tenant
+        environments. Experienced with high-availability systems, infrastructure-level on-call
+        rotations, and continuous telemetry using Grafana, Prometheus, Loki, and Splunk. Skilled in
+        Golang, Python, and automated compliance in security-sensitive environments.
+      </p>
+    </article><article>
+      <h2>Core Skills</h2><p>
+        <strong>Cloud &amp; Platforms:</strong> AWS (EKS, VPC, EC2, IAM, S3), Kubernetes, Docker, Helm,
+        Istio, Ingress Controllers
+      </p><p>
+        <strong>Infrastructure as Code:</strong> Terraform, HCL, GitLab CI, GitHub Actions, Reusable Infrastructure
+        Modules
+      </p><p>
+        <strong>FinOps &amp; Cost Optimization:</strong> AWS Compute Rightsizing, Spot Instance Strategy,
+        Graviton Migrations, Cluster Autoscaler
+      </p><p>
+        <strong>Languages &amp; Scripting:</strong> Golang, Python, Bash, PowerShell, JSON, YAML
+      </p><p>
+        <strong>Observability &amp; Incident Response:</strong> Grafana, Prometheus, Loki, Vector, Splunk,
+        Elastic Stack, CloudWatch, Infrastructure On-Call
+      </p><p>
+        <strong>Security &amp; Compliance:</strong> NIST SP 800-53, CIS Benchmarks, Keycloak, SAML/OIDC,
+        NeuVector, IAM
       </p>
     </article><article>
       <h2>Experience</h2><div>
-        <h3>Defense Unicorns <span>· Platform Engineer · May 2023–Present</span></h3><p>
-          AWS, EKS, Kubernetes, Terraform, GitLab CI, FluxCD, Helm, observability, identity,
-          infrastructure automation, and production operations.
-        </p>
+        <h3>Defense Unicorns <span>· Platform Engineer · May 2023–Present</span></h3>
+        <ul>
+          <li>
+            Managed full lifecycle operations for production AWS EKS clusters, executing
+            zero-downtime control-plane upgrades, Istio ingress configuration, and automated node
+            scaling using Cluster Autoscaler.
+          </li>
+          <li>
+            Built and maintained reusable, modular Terraform codebases, establishing infrastructure
+            standards and automated CI/CD deployment pipelines across teams.
+          </li>
+          <li>
+            Drove AWS footprint cost efficiency through proactive resource rightsizing, Spot node
+            strategy implementation, and Graviton instance migrations.
+          </li>
+          <li>
+            Maintained 99.99% runtime availability across multi-AZ environments; served on primary
+            infrastructure on-call rotation for platform-layer incidents.
+          </li>
+          <li>
+            Deployed and maintained monitoring stacks using Grafana, Prometheus, Loki, and Splunk
+            for real-time system telemetry, alert triage, and postmortem analysis.
+          </li>
+          <li>
+            Developed custom CLI tooling and operational automation in Golang and Python to simplify
+            developer workflows and cluster administration.
+          </li>
+          <li>
+            Hardened Kubernetes infrastructure to comply with NIST SP 800-53 and CIS standards,
+            integrating continuous container scanning via NeuVector and IAM controls.
+          </li>
+        </ul>
       </div><div>
         <h3>
           Amazon Web Services <span>· Cloud Support Engineer, Containers · Jan 2022–May 2023</span>
-        </h3><p>
-          Enterprise container support across Amazon EKS, ECS, Kubernetes, networking, scaling,
-          upgrades, multi-AZ architecture, and documentation. Resolved 182+ high-severity enterprise
-          cases while exceeding performance metrics.
-        </p>
+        </h3>
+        <ul>
+          <li>
+            Diagnosed and resolved complex, production-critical EKS and ECS issues for enterprise
+            customers, focusing on VPC CNI networking, ingress routing, and runtime container
+            performance.
+          </li>
+          <li>
+            Advised client engineering teams on Kubernetes control-plane scaling limits, cluster
+            upgrade paths, multi-AZ resilience, and disaster recovery strategies.
+          </li>
+          <li>
+            Resolved 182+ high-severity enterprise container cases (exceeding performance metrics by
+            115%) and authored technical runbooks and troubleshooting guides.
+          </li>
+        </ul>
       </div><div>
         <h3>
-          U.S. Air Force <span
-            >· Cyber Systems Operator / DevOps &amp; SRE focus · Dec 2018–Jul 2026</span
+          Texas Air National Guard <span
+            >· Cyber Systems Operator, DevOps/SRE Focus · Dec 2018–Present</span
           >
-        </h3><p>
-          Systems administration, automation, security operations, vulnerability scanning, incident
-          response, and enterprise support.
-        </p>
+        </h3>
+        <ul>
+          <li>
+            Automated Active Directory management and security tasks using PowerShell and Bash
+            scripts, cutting manual operational work by 90%.
+          </li>
+          <li>
+            Operated VMware ESXi virtualized environments and Virtual Desktop Infrastructure (VDI)
+            supporting 800+ users, maintaining uptime and patch schedules.
+          </li>
+          <li>
+            Executed vulnerability scans using Nessus, system audits, and rapid incident response in
+            accordance with federal security standards.
+          </li>
+        </ul>
       </div>
     </article><article>
-      <h2>Education</h2><p>
-        <strong>M.S. Management Information Systems</strong> · Texas A&amp;M University, Mays Business
-        School · 2026–Present
-      </p><p>
-        <strong>M.S. Cloud Computing Architecture</strong> · University of Maryland Global Campus · 2021
-      </p><p><strong>B.S. Criminal Justice</strong> · East Texas A&amp;M University · 2018</p>
+      <h2>Open Source</h2><p>
+        <a href="https://github.com/zarf-dev/zarf">zarf-dev/zarf</a> &mdash; CLI enhancements covering
+        semantic version parsing (<a href="https://github.com/zarf-dev/zarf/pull/3568">PR #3568</a>)
+        and RFC3339 time-format handling (<a href="https://github.com/zarf-dev/zarf/pull/3579"
+          >PR #3579</a
+        >).
+      </p>
     </article><article>
-      <h2>Certifications</h2><p>GPEN · GCPN · GCIH · GSEC · Security+ · Linux+ · VMware VCP-DCV</p>
+      <h2>Education</h2><p>
+        <strong>Master of Science, Management Information Systems</strong> · Texas A&amp;M University,
+        Mays Business School · 2026–Present
+      </p><p>
+        <strong>Master of Science, Cloud Computing Architecture</strong> · University of Maryland Global
+        Campus · 2021
+      </p><p>
+        <strong>Bachelor of Science, Criminal Justice</strong> · East Texas A&amp;M University · 2018
+      </p><p>
+        <strong>Graduate Certificate, Penetration Testing and Ethical Hacking</strong> · SANS Technology
+        Institute · 2024
+      </p>
+    </article><article>
+      <h2>Certifications</h2><p>
+        <strong>GIAC Certifications:</strong> GIAC Penetration Tester (GPEN) · GIAC Cloud Penetration
+        Testing (GCPN) · GIAC Certified Incident Handler (GCIH) · GIAC Security Essentials (GSEC)
+      </p><p>
+        <strong>CompTIA &amp; Vendor Certifications:</strong> CompTIA Security+ · CompTIA Linux+ · VMware
+        Certified Professional – Data Center Virtualization (VCP-DCV)
+      </p>
     </article>
   </section></BaseLayout
 >

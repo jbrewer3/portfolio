@@ -3,8 +3,8 @@ export const site = {
   title: 'Platform Engineer · Cloud Infrastructure · Data',
   description:
     'Joshua Brewer is a Platform Engineer focused on reliable cloud infrastructure, automation, observability, security, and data-driven systems.',
-  url: 'https://joshuabrewer.dev',
-  github: 'https://github.com/',
+  url: 'https://joshuabrewer.tech',
+  github: 'https://github.com/jbrewer3',
 };
 
 export const technologies = {

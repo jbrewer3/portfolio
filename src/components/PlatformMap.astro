@@ -1,28 +1,34 @@
-<section class="platform-map panel" aria-labelledby="platform-map-title">
+<section id="architecture-explorer" class="platform-map panel" aria-labelledby="platform-map-title">
   <div class="map-copy">
-    <p class="eyebrow">Architecture explorer · interactive system map</p><h2
-      id="platform-map-title"
-    >
-      Explore my engineering environment
-    </h2><p>
-      A sanitized, fictional platform model. Select a layer to see the engineering concern it
-      represents.
+    <h2 id="platform-map-title">Explore my engineering environment</h2><p>
+      A sanitized, fictional platform model built from the real open-source stack I operate day to
+      day. Select a layer to see what it does, why it exists, the relevant technologies, and where
+      this connects to my own experience.
     </p>
   </div>
   <div class="diagram-wrap">
     <div class="diagram" role="group" aria-label="Interactive architecture diagram">
       <button data-node="cloud" class="node">Cloud<br /><strong>AWS</strong></button><i></i>
+      <button data-node="packaging" class="node"
+        >Packaging &amp; delivery<br /><strong>Zarf · Helm · GitLab CI/CD</strong></button
+      ><i></i>
       <button data-node="cluster" class="node"
         >Orchestration<br /><strong>EKS / Kubernetes</strong></button
       ><i></i>
       <div class="node-row">
         <button data-node="ingress" class="node">Ingress</button><button
-          data-node="services"
-          class="node">Services</button
-        ><button data-node="workers" class="node">Workers</button>
+          data-node="identity"
+          class="node">Identity</button
+        ><button data-node="services" class="node">Services</button>
+      </div><i></i>
+      <div class="node-row">
+        <button data-node="policy" class="node">Policy &amp; admission</button><button
+          data-node="workers"
+          class="node">Workers</button
+        ><button data-node="security" class="node">Runtime security</button>
       </div><i></i>
       <button data-node="observe" class="node wide"
-        >Observability <strong>Prometheus · Grafana · Loki</strong></button
+        >Observability <strong>Grafana · Loki · Vector · Prometheus · Splunk</strong></button
       >
     </div>
     <aside class="detail" aria-live="polite">
@@ -30,9 +36,94 @@
         id="detail-text"
       >
         A composable cloud foundation built to make the right operational path the easy one.
-      </p><p class="tags" id="detail-tags">AWS · Kubernetes · Terraform</p>
+      </p><p class="tags" id="detail-tags">AWS · Terraform · IAM</p>
+      <p class="eyebrow">My experience</p>
+      <p id="detail-experience">
+        Operates AWS infrastructure in production as a Platform Engineer, architecting EKS, VPC,
+        RDS, S3, and IAM with Terraform across four promotion environments, and previously supported
+        enterprise AWS container environments directly as a Cloud Support Engineer.
+      </p>
     </aside>
   </div>
+  <details class="text-fallback">
+    <summary>View the architecture diagram as text</summary>
+    <dl>
+      <dt>Cloud — AWS</dt>
+      <dd>
+        Cloud infrastructure creates a resilient foundation for applications and operations.
+        Technologies: AWS · Terraform · IAM. Experience: operates AWS infrastructure in production
+        as a Platform Engineer, architecting EKS, VPC, RDS, S3, and IAM with Terraform across four
+        promotion environments, and previously supported enterprise AWS container environments
+        directly as a Cloud Support Engineer.
+      </dd>
+      <dt>Packaging &amp; delivery — Zarf, Helm, GitLab CI/CD</dt>
+      <dd>
+        Applications are packaged as versioned bundles so the same artifact can be validated once
+        and promoted safely through every environment, including disconnected ones. Technologies:
+        Zarf · Helm · GitLab CI/CD. Experience: contributed CLI enhancements directly to Zarf
+        (public PRs #3568 and #3579), an open-source Kubernetes packaging tool built for air-gapped
+        deployments, and builds Helm-based bundles delivered through CI/CD pipelines.
+      </dd>
+      <dt>Orchestration — EKS / Kubernetes</dt>
+      <dd>
+        Container orchestration and the platform foundation for repeatable workload delivery.
+        Technologies: EKS · Cluster Autoscaler. Experience: manages full lifecycle operations for
+        production EKS clusters, including zero-downtime control-plane upgrades and automated node
+        scaling with Cluster Autoscaler.
+      </dd>
+      <dt>Ingress — Istio</dt>
+      <dd>
+        A controlled entry point that routes traffic, terminates TLS, and makes services
+        discoverable. Technologies: Istio · Ingress Gateway · TLS. Experience: configures Istio
+        ingress gateways and load-balancing for production Kubernetes workloads, and previously
+        diagnosed ingress and routing issues across enterprise clusters as a Cloud Support Engineer.
+      </dd>
+      <dt>Identity</dt>
+      <dd>
+        Centralized authentication lets every application and every tenant trust the same source of
+        truth instead of managing its own users. Technologies: Keycloak · OIDC · SAML. Experience:
+        designed Keycloak-driven, OIDC-based identity mapping for a multi-tenant observability
+        platform, and mentored teammates on AWS IAM Roles Anywhere CAC trust-anchor configuration.
+      </dd>
+      <dt>Services</dt>
+      <dd>
+        Application workloads are operated through clear interfaces, resource boundaries, and
+        observable behavior. Technologies: Kubernetes · CI/CD · GitOps. Experience: operates
+        production services delivered through GitOps and CI/CD pipelines as part of a live platform
+        engineering role.
+      </dd>
+      <dt>Policy &amp; admission</dt>
+      <dd>
+        Guardrails enforced at admission time catch misconfiguration before it reaches running
+        workloads, instead of relying on after-the-fact audits. Technologies: Pepr · OPA/Rego.
+        Experience: migrated OPA/Rego policy validation into the platform's default
+        infrastructure-as-code stack and shipped JSON schema validation for air-gapped Kubernetes
+        runners, enforcing tagging and configuration contracts across every component.
+      </dd>
+      <dt>Worker capacity</dt>
+      <dd>
+        Compute capacity is planned and scaled so workloads have a reliable place to run.
+        Technologies: Autoscaling · Cluster Autoscaler · Multi-AZ. Experience: diagnosed capacity
+        and autoscaling issues professionally, including the kind of node-capacity exhaustion
+        modeled in this site's Incident Simulator.
+      </dd>
+      <dt>Runtime security</dt>
+      <dd>
+        Continuous scanning and runtime threat detection catch what static checks miss, once
+        workloads are actually running. Technologies: Falco · NeuVector. Experience: integrated
+        Falco runtime threat detection and NeuVector continuous container scanning into a hardened
+        platform baseline aligned to NIST SP 800-53 and CIS benchmarks.
+      </dd>
+      <dt>Observability</dt>
+      <dd>
+        Metrics, logs, and dashboards help engineers move from symptoms to evidence. Technologies:
+        Grafana · Loki · Vector · Prometheus · Splunk. Experience: designed and shipped a
+        multi-tenant observability architecture on Grafana, Loki, and Vector for 13+ vendor teams,
+        migrated Grafana configuration to Terraform for drift detection, and feeds centralized
+        Splunk through Vector pipelines.
+      </dd>
+    </dl>
+  </details>
 </section>
 <script>
   // @ts-nocheck
@@ -41,39 +132,70 @@
       'Cloud foundation',
       'Cloud infrastructure creates a resilient foundation for applications and operations.',
       'AWS · Terraform · IAM',
+      'Operates AWS infrastructure in production as a Platform Engineer, architecting EKS, VPC, RDS, S3, and IAM with Terraform across four promotion environments, and previously supported enterprise AWS container environments directly as a Cloud Support Engineer.',
+    ],
+    packaging: [
+      'Packaging & delivery',
+      'Applications are packaged as versioned bundles so the same artifact can be validated once and promoted safely through every environment, including disconnected ones.',
+      'Zarf · Helm · GitLab CI/CD',
+      'Contributed CLI enhancements directly to Zarf (public PRs #3568 and #3579), an open-source Kubernetes packaging tool built for air-gapped deployments, and builds Helm-based bundles delivered through CI/CD pipelines.',
     ],
     cluster: [
       'Kubernetes',
       'Container orchestration and the platform foundation for repeatable workload delivery.',
-      'EKS · Helm · GitOps',
+      'EKS · Cluster Autoscaler',
+      'Manages full lifecycle operations for production EKS clusters, including zero-downtime control-plane upgrades and automated node scaling with Cluster Autoscaler.',
     ],
     ingress: [
       'Ingress',
-      'A controlled entry point that routes traffic and makes services discoverable.',
-      'Networking · Load balancing · TLS',
+      'A controlled entry point that routes traffic, terminates TLS, and makes services discoverable.',
+      'Istio · Ingress Gateway · TLS',
+      'Configures Istio ingress gateways and load-balancing for production Kubernetes workloads, and previously diagnosed ingress and routing issues across enterprise clusters as a Cloud Support Engineer.',
+    ],
+    identity: [
+      'Identity',
+      'Centralized authentication lets every application and every tenant trust the same source of truth instead of managing its own users.',
+      'Keycloak · OIDC · SAML',
+      'Designed Keycloak-driven, OIDC-based identity mapping for a multi-tenant observability platform, and mentored teammates on AWS IAM Roles Anywhere CAC trust-anchor configuration.',
     ],
     services: [
       'Services',
       'Application workloads are operated through clear interfaces, resource boundaries, and observable behavior.',
-      'Kubernetes · CI/CD · SRE',
+      'Kubernetes · Istio · CI/CD',
+      'Operates production services with Istio service-mesh traffic management, delivered through CI/CD pipelines as part of a live platform engineering role.',
+    ],
+    policy: [
+      'Policy & admission',
+      'Guardrails enforced at admission time catch misconfiguration before it reaches running workloads, instead of relying on after-the-fact audits.',
+      'Pepr · OPA/Rego',
+      "Migrated OPA/Rego policy validation into the platform's default infrastructure-as-code stack and shipped JSON schema validation for air-gapped Kubernetes runners, enforcing tagging and configuration contracts across every component.",
     ],
     workers: [
       'Worker capacity',
       'Compute capacity is planned and scaled so workloads have a reliable place to run.',
-      'Autoscaling · Karpenter · Multi-AZ',
+      'Autoscaling · Cluster Autoscaler · Multi-AZ',
+      "Diagnosed capacity and autoscaling issues professionally, including the kind of node-capacity exhaustion modeled in this site's Incident Simulator.",
+    ],
+    security: [
+      'Runtime security',
+      'Continuous scanning and runtime threat detection catch what static checks miss, once workloads are actually running.',
+      'Falco · NeuVector',
+      'Integrated Falco runtime threat detection and NeuVector continuous container scanning into a hardened platform baseline aligned to NIST SP 800-53 and CIS benchmarks.',
     ],
     observe: [
       'Observability',
       'Metrics, logs, and dashboards help engineers move from symptoms to evidence.',
-      'Prometheus · Grafana · Loki · Vector',
+      'Grafana · Loki · Vector · Prometheus · Splunk',
+      'Designed and shipped a multi-tenant observability architecture on Grafana, Loki, and Vector for 13+ vendor teams, migrated Grafana configuration to Terraform for drift detection, and feeds centralized Splunk through Vector pipelines.',
     ],
   };
   document.querySelectorAll('[data-node]').forEach((button) =>
     button.addEventListener('click', () => {
-      const [title, text, tags] = nodes[button.dataset.node];
+      const [title, text, tags, experience] = nodes[button.dataset.node];
       document.querySelector('#detail-title').textContent = title;
       document.querySelector('#detail-text').textContent = text;
       document.querySelector('#detail-tags').textContent = tags;
+      document.querySelector('#detail-experience').textContent = experience;
       document.querySelectorAll('[data-node]').forEach((n) => n.removeAttribute('aria-current'));
       button.setAttribute('aria-current', 'true');
     }),
