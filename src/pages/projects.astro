@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Projects"
+  ><section class="page-hero shell">
+    <p class="eyebrow">Projects</p><h1>Things worth<br />building carefully.</h1><p class="lede">
+      Selected work is shared at the level that is public, useful, and safe to discuss. Employer and
+      customer systems are never represented here.
+    </p>
+  </section><section class="shell projects">
+    <article class="project featured">
+      <p class="eyebrow">Featured · Planned</p><h2>12th Data</h2><p class="project-subtitle">
+        Texas A&amp;M Football Data Platform
+      </p><p>
+        An open-source data platform concept combining data engineering, analytics, infrastructure,
+        and visualization around public Texas A&amp;M football data.
+      </p><div class="tags">
+        Python · SQL · PostgreSQL · Parquet · Docker · Kubernetes · Terraform
+      </div><p class="muted">
+        Planned: public data pipelines, documented analysis, and transparent visualizations. No
+        functionality is represented as implemented yet.
+      </p>
+    </article><article class="project">
+      <p class="eyebrow">Future case study</p><h2>Platform reliability patterns</h2><p>
+        Sanitized engineering notes on repeatable delivery, observability, and operational
+        readiness.
+      </p><span class="status">Planned</span>
+    </article><article class="project">
+      <p class="eyebrow">Future case study</p><h2>Operational data decisions</h2><p>
+        Exploring how infrastructure signals and analytics can improve engineering prioritization.
+      </p><span class="status">Planned</span>
+    </article>
+  </section></BaseLayout
+>

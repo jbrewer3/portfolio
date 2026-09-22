@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+---
+
+<BaseLayout
+  title="About"
+  description="The engineering path and current learning focus of Joshua Brewer."
+  ><section class="page-hero shell">
+    <p class="eyebrow">About</p><h1>Systems thinker.<br />Platform builder.</h1><p class="lede">
+      Seven-plus years across systems, cloud, and engineering environments have shaped a practical
+      approach: understand the system, reduce the friction, and leave it more reliable than you
+      found it.
+    </p>
+  </section><div class="shell stack">
+    <section>
+      <SectionHeading title="A progression, not a pivot" /><div class="story-grid">
+        <p>
+          Joshua’s work began in systems, infrastructure, security, and enterprise operations. That
+          foundation led to cloud engineering and deep Kubernetes troubleshooting, then into
+          platform engineering—where the objective is to build the paved roads that help other
+          engineers deliver safely and quickly.
+        </p><p>
+          His active M.S. in Management Information Systems at Texas A&amp;M University is the next
+          expression of that same work: connecting operational data, analytics, and information
+          systems to make better engineering decisions.
+        </p>
+      </div>
+    </section><section>
+      <SectionHeading eyebrow="Education" title="Learning in public, with purpose" /><div
+        class="credentials"
+      >
+        <article>
+          <h3>M.S. Management Information Systems</h3><p>
+            Texas A&amp;M University · Mays Business School
+          </p><span>2026 – Present</span>
+        </article><article>
+          <h3>M.S. Cloud Computing Architecture</h3><p>University of Maryland Global Campus</p><span
+            >2021</span
+          >
+        </article><article>
+          <h3>Graduate Certificate, Penetration Testing and Ethical Hacking</h3><p>
+            SANS Technology Institute
+          </p><span>2024</span>
+        </article>
+      </div>
+    </section><section>
+      <SectionHeading title="Engineering values" /><div class="pillar-grid">
+        <article class="pillar">
+          <h3>Make complexity legible</h3><p>
+            Good platforms let engineers understand the system and act with confidence.
+          </p>
+        </article><article class="pillar">
+          <h3>Use evidence</h3><p>
+            Metrics, logs, events, and clear documentation make better incident decisions.
+          </p>
+        </article><article class="pillar">
+          <h3>Design for the next operator</h3><p>
+            Automation and thoughtful defaults turn hard-won knowledge into durable capability.
+          </p>
+        </article>
+      </div>
+    </section>
+  </div></BaseLayout
+>

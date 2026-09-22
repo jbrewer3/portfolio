@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const drafts = [
+  ['Parquet vs CSV', 'Data · Draft'],
+  ['Designing Terraform Modules', 'Platform Engineering · Planned'],
+  ['Kubernetes Observability', 'Kubernetes · Planned'],
+  ['Applying Data Analytics to Infrastructure', 'Data · MS MIS · Planned'],
+  ['Building 12th Data', 'Data · Planned'],
+];
+---
+
+<BaseLayout title="Notes"
+  ><section class="page-hero shell">
+    <p class="eyebrow">Notes</p><h1>Notes from the<br />engineering desk.</h1><p class="lede">
+      A lightweight, Markdown-ready publishing space for ideas that are still being tested, learned,
+      and made useful.
+    </p>
+  </section><section class="shell note-list">
+    {
+      drafts.map(([title, meta]) => (
+        <article>
+          <>
+            <div>
+              <>
+                <p class="eyebrow">{meta}</p>
+                <h2>{title}</h2>
+              </>
+            </div>
+            <span class="status">Draft / planned</span>
+          </>
+        </article>
+      ))
+    }
+  </section></BaseLayout
+>

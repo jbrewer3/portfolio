@@ -1,0 +1,81 @@
+<section class="platform-map panel" aria-labelledby="platform-map-title">
+  <div class="map-copy">
+    <p class="eyebrow">Architecture explorer · interactive system map</p><h2
+      id="platform-map-title"
+    >
+      Explore my engineering environment
+    </h2><p>
+      A sanitized, fictional platform model. Select a layer to see the engineering concern it
+      represents.
+    </p>
+  </div>
+  <div class="diagram-wrap">
+    <div class="diagram" role="group" aria-label="Interactive architecture diagram">
+      <button data-node="cloud" class="node">Cloud<br /><strong>AWS</strong></button><i></i>
+      <button data-node="cluster" class="node"
+        >Orchestration<br /><strong>EKS / Kubernetes</strong></button
+      ><i></i>
+      <div class="node-row">
+        <button data-node="ingress" class="node">Ingress</button><button
+          data-node="services"
+          class="node">Services</button
+        ><button data-node="workers" class="node">Workers</button>
+      </div><i></i>
+      <button data-node="observe" class="node wide"
+        >Observability <strong>Prometheus · Grafana · Loki</strong></button
+      >
+    </div>
+    <aside class="detail" aria-live="polite">
+      <p class="eyebrow">Selected layer</p><h3 id="detail-title">Platform foundation</h3><p
+        id="detail-text"
+      >
+        A composable cloud foundation built to make the right operational path the easy one.
+      </p><p class="tags" id="detail-tags">AWS · Kubernetes · Terraform</p>
+    </aside>
+  </div>
+</section>
+<script>
+  // @ts-nocheck
+  const nodes = {
+    cloud: [
+      'Cloud foundation',
+      'Cloud infrastructure creates a resilient foundation for applications and operations.',
+      'AWS · Terraform · IAM',
+    ],
+    cluster: [
+      'Kubernetes',
+      'Container orchestration and the platform foundation for repeatable workload delivery.',
+      'EKS · Helm · GitOps',
+    ],
+    ingress: [
+      'Ingress',
+      'A controlled entry point that routes traffic and makes services discoverable.',
+      'Networking · Load balancing · TLS',
+    ],
+    services: [
+      'Services',
+      'Application workloads are operated through clear interfaces, resource boundaries, and observable behavior.',
+      'Kubernetes · CI/CD · SRE',
+    ],
+    workers: [
+      'Worker capacity',
+      'Compute capacity is planned and scaled so workloads have a reliable place to run.',
+      'Autoscaling · Karpenter · Multi-AZ',
+    ],
+    observe: [
+      'Observability',
+      'Metrics, logs, and dashboards help engineers move from symptoms to evidence.',
+      'Prometheus · Grafana · Loki · Vector',
+    ],
+  };
+  document.querySelectorAll('[data-node]').forEach((button) =>
+    button.addEventListener('click', () => {
+      const [title, text, tags] = nodes[button.dataset.node];
+      document.querySelector('#detail-title').textContent = title;
+      document.querySelector('#detail-text').textContent = text;
+      document.querySelector('#detail-tags').textContent = tags;
+      document.querySelectorAll('[data-node]').forEach((n) => n.removeAttribute('aria-current'));
+      button.setAttribute('aria-current', 'true');
+    }),
+  );
+</script>

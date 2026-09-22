@@ -1,0 +1,76 @@
+<section class="career-timeline" aria-labelledby="timeline-title">
+  <div class="section-heading">
+    <p class="eyebrow">Career progression</p>
+    <h2 id="timeline-title">The path to platform + data engineering.</h2>
+    <p>Select a milestone for the engineering context behind it.</p>
+  </div>
+  <div class="timeline-layout">
+    <div class="timeline-controls" role="tablist" aria-label="Career milestones">
+      <button role="tab" aria-selected="true" data-milestone="systems"
+        ><span>2018</span> Systems &amp; infrastructure</button
+      >
+      <button role="tab" aria-selected="false" data-milestone="cloud"
+        ><span>2022</span> AWS &amp; Kubernetes</button
+      >
+      <button role="tab" aria-selected="false" data-milestone="platform"
+        ><span>2023</span> Platform engineering</button
+      >
+      <button role="tab" aria-selected="false" data-milestone="data"
+        ><span>2026</span> Texas A&amp;M MS MIS</button
+      >
+      <button role="tab" aria-selected="false" data-milestone="now"
+        ><span>Now</span> Platform + data</button
+      >
+    </div>
+    <article class="timeline-detail" aria-live="polite">
+      <p class="eyebrow" id="milestone-year">2018 · Foundation</p><h3 id="milestone-title">
+        Systems &amp; infrastructure
+      </h3><p id="milestone-text">
+        Enterprise systems, security, automation, and operations established the habit of
+        understanding how the whole environment behaves—not just one component.
+      </p>
+    </article>
+  </div>
+</section>
+<script>
+  // @ts-nocheck
+  const milestones = {
+    systems: [
+      '2018 · Foundation',
+      'Systems & infrastructure',
+      'Enterprise systems, security, automation, and operations established the habit of understanding how the whole environment behaves—not just one component.',
+    ],
+    cloud: [
+      '2022 · Cloud support',
+      'AWS & Kubernetes',
+      'Supporting enterprise container environments sharpened a methodical approach to Kubernetes troubleshooting, networking, scaling, upgrades, and documentation.',
+    ],
+    platform: [
+      '2023 · Building the paved road',
+      'Platform engineering',
+      'The focus moved from resolving individual operational problems to building reliable, repeatable foundations that help engineering teams deliver.',
+    ],
+    data: [
+      '2026 · Information systems',
+      'Texas A&M MS MIS',
+      'Data analytics, warehousing, mining, Python, and SQL extend the platform lens: operational signals can become inputs to better technical and organizational decisions.',
+    ],
+    now: [
+      'Now · The next intersection',
+      'Platform + data engineering',
+      'The current direction combines reliable infrastructure with operational data and information systems thinking—better context for better engineering decisions.',
+    ],
+  };
+  document.querySelectorAll('[data-milestone]').forEach((tab) =>
+    tab.addEventListener('click', () => {
+      const [year, title, text] = milestones[tab.dataset.milestone];
+      document.querySelector('#milestone-year').textContent = year;
+      document.querySelector('#milestone-title').textContent = title;
+      document.querySelector('#milestone-text').textContent = text;
+      document
+        .querySelectorAll('[data-milestone]')
+        .forEach((item) => item.setAttribute('aria-selected', 'false'));
+      tab.setAttribute('aria-selected', 'true');
+    }),
+  );
+</script>

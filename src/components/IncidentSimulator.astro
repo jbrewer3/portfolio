@@ -1,0 +1,74 @@
+<section class="incident panel" aria-labelledby="incident-title">
+  <div>
+    <p class="eyebrow">Fictional incident simulator</p><h2 id="incident-title">
+      Can you fix the outage?
+    </h2><p>
+      Use the signals below to form a hypothesis. This scenario is deliberately sanitized and
+      fictional.
+    </p>
+  </div>
+  <div class="incident-grid">
+    <div class="incident-status">
+      <p class="alert">● Production incident</p><dl>
+        <div><dt>API error rate</dt><dd>37%</dd></div><div>
+          <dt>P95 latency</dt><dd>2.8s</dd>
+        </div><div><dt>Healthy nodes</dt><dd>6 / 10</dd></div><div>
+          <dt>Pending pods</dt><dd>42</dd>
+        </div>
+      </dl>
+    </div><div>
+      <div class="tabs" role="tablist" aria-label="Investigation signals">
+        <button role="tab" aria-selected="true" data-tab="metrics">Metrics</button><button
+          role="tab"
+          data-tab="logs">Logs</button
+        ><button role="tab" data-tab="events">Events</button><button role="tab" data-tab="cluster"
+          >Cluster</button
+        ><button role="tab" data-tab="architecture">Architecture</button>
+      </div><pre
+        id="incident-output"
+        tabindex="0">CPU utilization   ███████████████████  94%\nMemory            ███████████████      76%\nPending pods      ████████████████████ 42</pre><button
+        class="reveal"
+        type="button">Reveal diagnosis</button
+      ><div class="diagnosis" hidden>
+        <h3>Root cause: capacity exhaustion</h3><p>
+          Workloads cannot be scheduled because available node capacity is exhausted and additional
+          capacity is not arriving quickly enough.
+        </p><h4>Resolution approach</h4><p>
+          Validate autoscaling signals and constraints, restore safe capacity, then confirm
+          scheduling recovery. Prevent recurrence with capacity headroom, scaling tests, and
+          alerting on pending workloads.
+        </p><details>
+          <summary>What I would check next</summary><p>
+            Recent deploys, resource requests, autoscaler events, quota limits, node health, and the
+            traffic pattern that drove demand.
+          </p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  // @ts-nocheck
+  const evidence = {
+    metrics:
+      'CPU utilization   ███████████████████  94%\\nMemory            ███████████████      76%\\nPending pods      ████████████████████ 42',
+    logs: 'service unavailable\\npod pending\\nrequest waiting for available capacity',
+    events: 'FailedScheduling: Insufficient CPU\\nFailedScheduling: 0/6 nodes are available',
+    cluster: 'Nodes ready: 6 / 10\\nRequested CPU: 94%\\nPending workloads: 42',
+    architecture:
+      'Traffic → Ingress → Services → Worker capacity\\n                         ↘ Autoscaling',
+  };
+  document.querySelectorAll('[data-tab]').forEach((tab) =>
+    tab.addEventListener('click', () => {
+      document.querySelector('#incident-output').textContent = evidence[tab.dataset.tab];
+      document
+        .querySelectorAll('[data-tab]')
+        .forEach((t) => t.setAttribute('aria-selected', 'false'));
+      tab.setAttribute('aria-selected', 'true');
+    }),
+  );
+  document.querySelector('.reveal')?.addEventListener('click', (event) => {
+    document.querySelector('.diagnosis').hidden = false;
+    event.currentTarget.hidden = true;
+  });
+</script>
