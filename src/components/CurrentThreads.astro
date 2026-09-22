@@ -1,63 +1,61 @@
 <section class="current-threads" aria-labelledby="threads-title">
   <div class="threads-intro">
-    <p class="eyebrow">The operating system</p><h2 id="threads-title">
-      Three active threads.<br />One point of view.
+    <p class="eyebrow">Current operating notes</p><h2 id="threads-title">
+      Three active threads.<br />One engineering point of view.
     </h2><p>
-      Not a stack of credentials. A set of questions Joshua is actively pursuing across platforms,
-      data, and information systems.
+      Pulled from daily work logs and project notes: platform modernization, observable systems,
+      and product-grade side projects.
     </p>
   </div>
   <div class="thread-list" role="tablist" aria-label="Current engineering threads">
-    <button role="tab" aria-selected="true" data-thread="reliability"
-      ><span>01</span><strong>How do we make reliable operation the default?</strong><small
-        >Platform reliability</small
+    <button role="tab" aria-selected="true" data-thread="observability"
+      ><span>01</span><strong>How do we make observability multi-tenant and repeatable?</strong><small
+        >Grafana · Keycloak · Terraform</small
       ></button
     >
-    <button role="tab" aria-selected="false" data-thread="data"
-      ><span>02</span><strong>How can operational data make engineering decisions sharper?</strong
-      ><small>Data + analytics</small></button
+    <button role="tab" aria-selected="false" data-thread="platform"
+      ><span>02</span><strong>How do platform changes move safely across environments?</strong><small
+        >Atmos · EKS · CI/CD</small></button
     >
-    <button role="tab" aria-selected="false" data-thread="open"
-      ><span>03</span><strong
-        >What does a public engineering project look like when it is still becoming?</strong
-      ><small>12th Data</small></button
+    <button role="tab" aria-selected="false" data-thread="product"
+      ><span>03</span><strong>What does a careful solo product build look like?</strong><small
+        >Heads-up marketplace</small></button
     >
   </div>
   <article class="thread-answer" aria-live="polite">
     <div class="answer-meta">
       <span id="thread-number">01 / CURRENT FOCUS</span><span id="thread-status">IN PRACTICE</span>
-    </div><h3 id="thread-title">Reliable operation should not require heroic effort.</h3><p
+    </div><h3 id="thread-title">Observability should be provisioned, not hand assembled.</h3><p
       id="thread-text"
     >
-      Platform engineering is about reducing friction for the people who build and operate software:
-      clear paths, useful signals, repeatable delivery, and systems that explain themselves when
-      they are under pressure.
-    </p><p class="answer-tag" id="thread-tag">AWS · Kubernetes · Terraform · Observability</p>
+      Recent work centers on Grafana organization isolation, Keycloak group mapping, Terraform-managed
+      dashboards and datasources, and CloudWatch-backed panels that stay portable across environments.
+    </p><p class="answer-tag" id="thread-tag">Grafana · Keycloak · Terraform · Loki · CloudWatch</p>
   </article>
 </section>
 <script>
   // @ts-nocheck
   const threads = {
-    reliability: [
+    observability: [
       '01 / CURRENT FOCUS',
       'IN PRACTICE',
-      'Reliable operation should not require heroic effort.',
-      'Platform engineering is about reducing friction for the people who build and operate software: clear paths, useful signals, repeatable delivery, and systems that explain themselves when they are under pressure.',
-      'AWS · Kubernetes · Terraform · Observability',
+      'Observability should be provisioned, not hand assembled.',
+      'Recent work centers on Grafana organization isolation, Keycloak group mapping, Terraform-managed dashboards and datasources, and CloudWatch-backed panels that stay portable across environments.',
+      'Grafana · Keycloak · Terraform · Loki · CloudWatch',
     ],
-    data: [
-      '02 / CURRENT STUDY',
-      'IN PROGRESS',
-      'Signals are useful only when they lead to better decisions.',
-      'The M.S. in Management Information Systems extends a platform background into analytics, warehousing, Python, and SQL—turning operational context into a stronger basis for technical and organizational decisions.',
-      'Python · SQL · Analytics · Information Systems',
+    platform: [
+      '02 / PLATFORM WORK',
+      'SHIPPING',
+      'Safe platform change needs a path, not a hero.',
+      'Daily notes show repeated work on Atmos/Terraform stack patterns, UDS Core release lines, CIDR refactors, runner infrastructure, IAM boundaries, and deployment workflow ordering.',
+      'AWS · EKS · Atmos · Terraform · GitLab CI/CD',
     ],
-    open: [
+    product: [
       '03 / OPEN BUILD',
-      'PLANNED',
-      'A data platform can be a public artifact of engineering judgment.',
-      '12th Data is a planned open-source Texas A&M football data platform. The interest is not in pretending it is finished; it is in documenting the real path from raw public data to useful analysis.',
-      '12th Data · Parquet · PostgreSQL · Visualization',
+      'DESIGNING',
+      'A side project is a place to practice product-grade constraints.',
+      'Heads-up is a planned B2B crawfish marketplace using Next.js, Go, Postgres, Keycloak, Stripe, and an outbox-driven workflow so payments, orders, and notifications stay consistent.',
+      'Next.js · Go · Postgres · Keycloak · Stripe',
     ],
   };
   document.querySelectorAll('[data-thread]').forEach((tab) =>

@@ -1,8 +1,8 @@
 export const site = {
   name: 'Joshua Brewer',
-  title: 'Platform Engineer · Cloud Infrastructure · Data',
+  title: 'Platform Engineer · Kubernetes · Observability · Infrastructure as Code',
   description:
-    'Joshua Brewer is a Platform Engineer focused on reliable cloud infrastructure, automation, observability, security, and data-driven systems.',
+    'Joshua Brewer is a Platform Engineer focused on Kubernetes platforms, infrastructure as code, observability, identity, security, and operational data.',
   url: 'https://joshuabrewer.dev',
   github: 'https://github.com/',
 };
@@ -10,13 +10,29 @@ export const site = {
 export const technologies = {
   platform: [
     'AWS',
-    'Kubernetes',
+    'EKS / Kubernetes',
     'Terraform',
-    'GitOps',
-    'CI/CD',
-    'SRE',
-    'Infrastructure automation',
+    'Atmos',
+    'GitLab CI/CD',
+    'CodePipeline',
+    'UDS / Zarf',
   ],
-  data: ['Python', 'SQL', 'Data engineering', 'Analytics', 'Data warehousing', 'Data mining'],
-  systems: ['Linux', 'Security', 'Identity', 'Observability', 'Enterprise systems', 'Reliability'],
+  observability: [
+    'Grafana',
+    'Loki',
+    'Prometheus',
+    'Vector',
+    'CloudWatch',
+    'Alerting',
+    'Runbooks',
+  ],
+  systems: [
+    'Linux',
+    'Identity / Keycloak',
+    'Security',
+    'Policy as code',
+    'PostgreSQL',
+    'Documentation',
+    'Reliability',
+  ],
 };

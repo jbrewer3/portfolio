@@ -9,18 +9,19 @@ import SectionHeading from '../components/SectionHeading.astro';
 import { technologies } from '../data/site';
 ---
 
-<BaseLayout title="Platform Engineering · Cloud Infrastructure · Data">
+<BaseLayout title="Platform Engineering · Kubernetes · Observability">
   <section class="hero shell">
     <div class="hero-layout">
       <div class="hero-copy">
-        <p class="eyebrow">Platform engineering · cloud infrastructure · data</p><h1>
+        <p class="eyebrow">Platform engineering · Kubernetes · observability</p><h1>
           Joshua<br /><em>Brewer</em>
-        </h1><p class="hero-statement">I build systems that engineers can depend on.</p><p
+        </h1><p class="hero-statement">I turn messy operational paths into reliable platform systems.</p><p
           class="lede"
         >
-          Platform Engineer focused on cloud infrastructure, automation, observability, security,
-          and data-driven systems. Currently expanding that foundation through an M.S. in Management
-          Information Systems at Texas A&amp;M University.
+          Platform Engineer working across AWS, EKS, Terraform, Atmos, GitLab CI/CD, UDS/Zarf,
+          Grafana, Keycloak, and production operations. My notes track the practical work: multi-tenant
+          observability, platform release lines, mission app onboarding, database restore runbooks,
+          and better documentation for the next engineer.
         </p><div class="actions">
           <a class="button" href="/projects/">Explore my work</a><a
             class="button secondary"
@@ -30,7 +31,7 @@ import { technologies } from '../data/site';
           >
         </div><div class="progression" aria-label="Engineering career progression">
           <span>Systems</span><b>→</b><span>Cloud</span><b>→</b><span>Platform</span><b>→</b><span
-            >Data</span
+            >Observability</span
           >
         </div>
       </div><SignalPlate />
@@ -43,7 +44,7 @@ import { technologies } from '../data/site';
       <SectionHeading
         eyebrow="Three connected disciplines"
         title="The work lives at the intersection."
-        text="Reliable platforms are more than infrastructure: they combine delivery, operational insight, and durable systems thinking."
+        text="Reliable platforms are more than infrastructure: they combine repeatable delivery, identity-aware access, operational evidence, and durable systems thinking."
       /><div class="pillar-grid">
         {
           Object.entries(technologies).map(([name, tools]) => (
@@ -53,8 +54,8 @@ import { technologies } from '../data/site';
                 <h3>
                   {name === 'platform'
                     ? 'Platforms people trust.'
-                    : name === 'data'
-                      ? 'Data that informs decisions.'
+                    : name === 'observability'
+                      ? 'Signals people can act on.'
                       : 'Systems that hold up.'}
                 </h3>
                 <ul>
@@ -94,11 +95,12 @@ import { technologies } from '../data/site';
     </section>
     <section class="learning">
       <p class="eyebrow">Now learning</p><h2>
-        Platform Engineering <b>+</b> Operational Data <b>+</b> Analytics <b>+</b> Information Systems
+        Platform Engineering <b>+</b> Observability <b>+</b> Identity <b>+</b> Operational Data
         <b>=</b> Better Engineering Decisions
       </h2><p>
-        At Texas A&amp;M’s Mays Business School, Joshua is connecting practical platform work with
-        data analytics, warehousing, Python, SQL, and organizational decision-making.
+        My current work connects day-to-day platform operations with structured learning in Texas
+        A&amp;M’s M.S. in Management Information Systems program: analytics, warehousing, Python, SQL,
+        and organizational decision-making applied back to real engineering systems.
       </p><a class="text-link" href="/about/">Read the longer story →</a>
     </section>
   </div>

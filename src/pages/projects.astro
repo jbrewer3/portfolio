@@ -4,32 +4,61 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout title="Projects"
   ><section class="page-hero shell">
-    <p class="eyebrow">Projects</p><h1>Things worth<br />building carefully.</h1><p class="lede">
-      Selected work is shared at the level that is public, useful, and safe to discuss. Employer and
-      customer systems are never represented here.
+    <p class="eyebrow">Projects</p><h1>Systems worth<br />building carefully.</h1><p class="lede">
+      Selected work distilled from daily notes and project logs. Employer/customer-specific details
+      are sanitized; the focus is on architecture, tradeoffs, and engineering judgment.
     </p>
   </section><section class="shell projects">
     <article class="project featured">
-      <p class="eyebrow">Featured · Planned</p><h2>12th Data</h2><p class="project-subtitle">
-        Texas A&amp;M Football Data Platform
+      <p class="eyebrow">Featured · Platform observability</p><h2>Multi-tenant Grafana RBAC</h2><p
+        class="project-subtitle"
+      >
+        Keycloak-driven org mapping with Terraform-managed Grafana state
       </p><p>
-        An open-source data platform concept combining data engineering, analytics, infrastructure,
-        and visualization around public Texas A&amp;M football data.
+        Designed a multi-tenant observability model using Grafana Organizations, Keycloak group
+        claims, and Terraform-managed orgs, datasources, dashboards, folders, alert rules, contact
+        points, and notification policies.
+      </p><p>
+        The core decision: keep the bundle responsible for Grafana as an application while Terraform
+        owns Grafana content and tenant state. That avoids cross-environment org ID skew, enables
+        drift detection, and makes new team onboarding a config-driven change.
       </p><div class="tags">
-        Python · SQL · PostgreSQL · Parquet · Docker · Kubernetes · Terraform
+        Grafana · Keycloak · Terraform · Atmos · Loki · Prometheus · CloudWatch
       </div><p class="muted">
-        Planned: public data pipelines, documented analysis, and transparent visualizations. No
-        functionality is represented as implemented yet.
+        Sanitized from project notes covering ADR work, local k3d validation, UDS Core bundle
+        configuration, and Grafana dashboard onboarding workflows.
       </p>
     </article><article class="project">
-      <p class="eyebrow">Future case study</p><h2>Platform reliability patterns</h2><p>
-        Sanitized engineering notes on repeatable delivery, observability, and operational
-        readiness.
-      </p><span class="status">Planned</span>
+      <p class="eyebrow">Infrastructure as code</p><h2>Platform modernization patterns</h2><p>
+        Refactored deployment and runner infrastructure toward consistent Atmos/Terraform stack
+        patterns: remote state, promotion workflows, policy validation, JSON schema validation, and
+        approval gates.
+      </p><div class="tags">AWS · EKS · Terraform · Atmos · GitLab CI/CD · CodePipeline</div><span
+        class="status">In practice</span
+      >
     </article><article class="project">
-      <p class="eyebrow">Future case study</p><h2>Operational data decisions</h2><p>
-        Exploring how infrastructure signals and analytics can improve engineering prioritization.
-      </p><span class="status">Planned</span>
+      <p class="eyebrow">Operational reliability</p><h2>Database restore optimization</h2><p>
+        Compared PostgreSQL restore approaches and documented the faster operational path: avoid
+        fragile S3 streaming, use mounted object storage, parallel <code>pg_restore</code>, and choose
+        the instance path that wins end-to-end time rather than benchmark time alone.
+      </p><div class="tags">PostgreSQL · RDS · S3 · Runbooks · Performance testing</div><span
+        class="status">Documented runbook</span
+      >
+    </article><article class="project">
+      <p class="eyebrow">Product build · In design</p><h2>Heads-up</h2><p>
+        A planned B2B crawfish marketplace designed around reliable transaction boundaries: Next.js
+        web app, Go Connect-RPC API, Postgres state machines, Keycloak auth, Stripe Connect, and an
+        outbox worker so state changes and side effects stay atomic.
+      </p><div class="tags">Next.js · Go · Postgres · Keycloak · Stripe · Outbox pattern</div><span
+        class="status">Private build notes</span
+      >
+    </article><article class="project">
+      <p class="eyebrow">Future public data project</p><h2>12th Data</h2><p>
+        An open-source data platform concept combining data engineering, analytics, infrastructure,
+        and visualization around public Texas A&amp;M football data.
+      </p><div class="tags">Python · SQL · PostgreSQL · Parquet · Docker · Terraform</div><span
+        class="status">Planned</span
+      >
     </article>
   </section></BaseLayout
 >

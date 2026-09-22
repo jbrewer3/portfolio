@@ -5,24 +5,25 @@
     >
       Explore my engineering environment
     </h2><p>
-      A sanitized, fictional platform model. Select a layer to see the engineering concern it
-      represents.
+      A sanitized platform model based on recurring patterns in my daily engineering notes. Select a
+      layer to see the concern it represents.
     </p>
   </div>
   <div class="diagram-wrap">
     <div class="diagram" role="group" aria-label="Interactive architecture diagram">
       <button data-node="cloud" class="node">Cloud<br /><strong>AWS</strong></button><i></i>
+      <button data-node="iac" class="node">IaC<br /><strong>Atmos / Terraform</strong></button><i></i>
       <button data-node="cluster" class="node"
         >Orchestration<br /><strong>EKS / Kubernetes</strong></button
       ><i></i>
       <div class="node-row">
-        <button data-node="ingress" class="node">Ingress</button><button
-          data-node="services"
-          class="node">Services</button
-        ><button data-node="workers" class="node">Workers</button>
+        <button data-node="identity" class="node">Identity</button><button
+          data-node="delivery"
+          class="node">Delivery</button
+        ><button data-node="apps" class="node">Apps</button>
       </div><i></i>
       <button data-node="observe" class="node wide"
-        >Observability <strong>Prometheus · Grafana · Loki</strong></button
+        >Observability <strong>Grafana · Loki · CloudWatch</strong></button
       >
     </div>
     <aside class="detail" aria-live="polite">
@@ -42,30 +43,35 @@
       'Cloud infrastructure creates a resilient foundation for applications and operations.',
       'AWS · Terraform · IAM',
     ],
+    iac: [
+      'Infrastructure as code',
+      'Atmos and Terraform keep promotion environments understandable, reviewable, and repeatable.',
+      'Terraform · Atmos · Policy as code',
+    ],
     cluster: [
       'Kubernetes',
       'Container orchestration and the platform foundation for repeatable workload delivery.',
-      'EKS · Helm · GitOps',
+      'EKS · Helm · UDS · Zarf',
     ],
-    ingress: [
-      'Ingress',
-      'A controlled entry point that routes traffic and makes services discoverable.',
-      'Networking · Load balancing · TLS',
+    identity: [
+      'Identity boundary',
+      'Keycloak groups and OIDC claims become the source of truth for application and dashboard access.',
+      'Keycloak · OIDC · RBAC',
     ],
-    services: [
-      'Services',
-      'Application workloads are operated through clear interfaces, resource boundaries, and observable behavior.',
-      'Kubernetes · CI/CD · SRE',
+    delivery: [
+      'Delivery workflow',
+      'CI/CD and release ordering make platform changes move safely from dev through production.',
+      'GitLab CI · CodePipeline · Workflows',
     ],
-    workers: [
-      'Worker capacity',
-      'Compute capacity is planned and scaled so workloads have a reliable place to run.',
-      'Autoscaling · Karpenter · Multi-AZ',
+    apps: [
+      'Mission apps',
+      'Application onboarding needs infrastructure, package configuration, registry routing, auth, and dashboards to line up.',
+      'PostgreSQL · IAM · Zarf config',
     ],
     observe: [
       'Observability',
-      'Metrics, logs, and dashboards help engineers move from symptoms to evidence.',
-      'Prometheus · Grafana · Loki · Vector',
+      'Metrics, logs, dashboards, and alerts help engineers move from symptoms to evidence.',
+      'Grafana · Loki · Prometheus · Vector · CloudWatch',
     ],
   };
   document.querySelectorAll('[data-node]').forEach((button) =>

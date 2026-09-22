@@ -1,7 +1,7 @@
 <section class="career-timeline" aria-labelledby="timeline-title">
   <div class="section-heading">
     <p class="eyebrow">Career progression</p>
-    <h2 id="timeline-title">The path to platform + data engineering.</h2>
+    <h2 id="timeline-title">The path to platform engineering.</h2>
     <p>Select a milestone for the engineering context behind it.</p>
   </div>
   <div class="timeline-layout">
@@ -15,11 +15,11 @@
       <button role="tab" aria-selected="false" data-milestone="platform"
         ><span>2023</span> Platform engineering</button
       >
-      <button role="tab" aria-selected="false" data-milestone="data"
-        ><span>2026</span> Texas A&amp;M MS MIS</button
+      <button role="tab" aria-selected="false" data-milestone="observability"
+        ><span>2026</span> Multi-tenant observability</button
       >
       <button role="tab" aria-selected="false" data-milestone="now"
-        ><span>Now</span> Platform + data</button
+        ><span>Now</span> Platform + MIS</button
       >
     </div>
     <article class="timeline-detail" aria-live="polite">
@@ -50,15 +50,15 @@
       'Platform engineering',
       'The focus moved from resolving individual operational problems to building reliable, repeatable foundations that help engineering teams deliver.',
     ],
-    data: [
-      '2026 · Information systems',
-      'Texas A&M MS MIS',
-      'Data analytics, warehousing, mining, Python, and SQL extend the platform lens: operational signals can become inputs to better technical and organizational decisions.',
+    observability: [
+      '2026 · Multi-tenant observability',
+      'Grafana, Keycloak & Terraform',
+      'Recent work has focused on tenant-aware observability, Terraform-managed Grafana state, CloudWatch dashboards, Keycloak group mapping, and dashboard onboarding workflows.',
     ],
     now: [
       'Now · The next intersection',
-      'Platform + data engineering',
-      'The current direction combines reliable infrastructure with operational data and information systems thinking—better context for better engineering decisions.',
+      'Platform + information systems',
+      'The current direction combines reliable infrastructure with operational data, MIS coursework, documentation, and product thinking—better context for better engineering decisions.',
     ],
   };
   document.querySelectorAll('[data-milestone]').forEach((tab) =>

@@ -4,31 +4,39 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout title="Resume"
   ><section class="page-hero shell">
-    <p class="eyebrow">Resume</p><h1>Platform Engineer<br />with a systems lens.</h1><p
+    <p class="eyebrow">Resume</p><h1>Platform Engineer<br />with an operations lens.</h1><p
       class="lede"
     >
-      Public, high-level professional profile. The downloadable version contains only intentionally
-      public, sanitized information.
+      Public, high-level professional profile. Project details are intentionally summarized and
+      sanitized for public viewing.
     </p><a class="button secondary" href="/resume/joshua-brewer-resume.pdf">Download resume PDF</a>
   </section><section class="shell resume">
     <article>
       <h2>Summary</h2><p>
-        Platform Engineer with 7+ years of experience across cloud infrastructure, Kubernetes,
-        automation, observability, security, and enterprise systems.
+        Platform Engineer with 7+ years of experience across AWS, Kubernetes, infrastructure as code,
+        CI/CD, observability, identity, security, enterprise systems, and operational documentation.
+        Recent work emphasizes multi-tenant Grafana/Keycloak access, Terraform-managed platform
+        state, UDS/Zarf platform releases, and repeatable mission app onboarding.
       </p>
     </article><article>
       <h2>Experience</h2><div>
         <h3>Defense Unicorns <span>· Platform Engineer · May 2023–Present</span></h3><p>
-          AWS, EKS, Kubernetes, Terraform, GitLab CI, FluxCD, Helm, observability, identity,
-          infrastructure automation, and production operations.
+          Build and operate AWS/EKS platform foundations using Terraform, Atmos, GitLab CI/CD,
+          CodePipeline, UDS/Zarf, Helm, Grafana, Loki, Vector, Prometheus, Keycloak, IAM, RDS, S3,
+          and security-focused automation.
+        </p><p>
+          Selected work includes multi-tenant Grafana RBAC through Keycloak org mapping, Terraform
+          provisioning for Grafana orgs/datasources/dashboards/alerting, UDS Core release and package
+          maintenance, runner infrastructure modernization, database restore optimization, CloudWatch
+          dashboard enablement, and onboarding documentation for new engineers and applications.
         </p>
       </div><div>
         <h3>
           Amazon Web Services <span>· Cloud Support Engineer, Containers · Jan 2022–May 2023</span>
         </h3><p>
-          Enterprise container support across Amazon EKS, ECS, Kubernetes, networking, scaling,
-          upgrades, multi-AZ architecture, and documentation. Resolved 182+ high-severity enterprise
-          cases while exceeding performance metrics.
+          Supported enterprise container environments across Amazon EKS, ECS, Fargate, ECR, App Mesh,
+          Batch, VPC, IAM, scaling, upgrades, multi-AZ architecture, troubleshooting, and
+          documentation. Resolved 182+ high-severity enterprise cases while exceeding team metrics.
         </p>
       </div><div>
         <h3>
@@ -36,10 +44,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             >· Cyber Systems Operator / DevOps &amp; SRE focus · Dec 2018–Jul 2026</span
           >
         </h3><p>
-          Systems administration, automation, security operations, vulnerability scanning, incident
-          response, and enterprise support.
+          Systems administration, virtualization, automation, security operations, vulnerability
+          scanning, incident response, image lifecycle management, and enterprise support.
         </p>
       </div>
+    </article><article>
+      <h2>Selected project themes</h2><p>
+        <strong>Multi-tenant observability:</strong> Grafana Organizations, Keycloak/OIDC group
+        claims, Loki/CloudWatch datasources, Terraform-managed dashboards, and dashboard onboarding
+        workflows.
+      </p><p>
+        <strong>Infrastructure as code:</strong> Terraform/Atmos component patterns, remote state,
+        schema validation, OPA/Rego policy enforcement, CI/CD workflows, and environment promotion.
+      </p><p>
+        <strong>Operational reliability:</strong> PostgreSQL restore testing, runbook documentation,
+        outage response guidance, and mission app troubleshooting across auth, package config,
+        registry routing, IAM, and dashboards.
+      </p>
     </article><article>
       <h2>Education</h2><p>
         <strong>M.S. Management Information Systems</strong> · Texas A&amp;M University, Mays Business
@@ -48,7 +69,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <strong>M.S. Cloud Computing Architecture</strong> · University of Maryland Global Campus · 2021
       </p><p><strong>B.S. Criminal Justice</strong> · East Texas A&amp;M University · 2018</p>
     </article><article>
-      <h2>Certifications</h2><p>GPEN · GCPN · GCIH · GSEC · Security+ · Linux+ · VMware VCP-DCV</p>
+      <h2>Certifications</h2><p>
+        GPEN · GCPN · GCIH · GSEC · AWS Solutions Architect – Associate · Security+ · Linux+ · VMware
+        VCP-DCV
+      </p>
     </article>
   </section></BaseLayout
 >
